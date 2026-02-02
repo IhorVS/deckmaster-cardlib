@@ -40,7 +40,7 @@ public enum DeckTemplate {
     ),
 
     /**
-     * Full deck (52 cards, from Two to King)
+     * Full deck (52 cards, from Two to Ace)
      * Used in games like Poker
      */
     FULL(Rank.TWO, Rank.ACE),
