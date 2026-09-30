@@ -1,7 +1,7 @@
 # cards-core
 
 Java building blocks for card games: playing cards, deck templates, shuffling,
-dealing, multi-deck shoes, and card holders with search and counting operations.
+dealing, multi-deck shoes, and cardholders with search and counting operations.
 
 Use these components to manage cards while implementing game rules, turns,
 scoring, and win conditions in your application.
@@ -39,18 +39,18 @@ in a public Maven repository.
 
 Package names below are relative to `ivs.game.accessories.cards`.
 
-| Package | Main types | Purpose |
-| --- | --- | --- |
-| `core.type` | `PlayingCard`, `StandardCard`, `JokerCard`, `Rank`, `Suit`, `Color` | Immutable card values and their properties |
-| `core.id` | `CardId`, `RankId`, `SuitId`, `JokerId`, `ColorId` | Numeric identifiers, validation, and conversions |
-| `core.id.format` | `CardSymbol`, `DeckSymbol`, `RankSymbol`, `SuitSymbol`, `JokerSymbol` | Parse and format text symbols |
-| `ordering` | `PlayingCardComparator`, `RankWeightComparator`, `SuitWeightComparator` | Configure suit and rank ordering |
-| `cardholder` | `CardHolder`, `CardViewer`, `CardSummary`, `StandardCardHolder` | Store cards, search within a suit, and count occurrences |
-| `gamedeck` | `DeckTemplate`, `GameDeck`, `StandardGameDeck` | Create card sets and draw from an ordered deck |
-| `gamedeck.shuffler` | `ShufflerFactory`, `InPlaceShuffler`, `CopyingShuffler` | Shuffle a mutable list or create a shuffled copy |
-| `gamedeck.dealer` | `CardDealer`, `Recipient`, `DealRequest`, `DealResult` | Describe dealing requests and allocations |
-| `gamedeck.dealer.impl` | `StandardCardDealer`, `StandardDealRequest`, `StandardDealResult` | Sequential dealing and immutable request/result containers |
-| `gamedeck.cardshoe` | `CardShoe`, `StandardCardShoe`, `CutCardCalculator` | Draw from a shoe and monitor a cut-card threshold |
+| Package                | Main types                                                              | Purpose                                                    |
+| ---------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `core.type`            | `PlayingCard`, `StandardCard`, `JokerCard`, `Rank`, `Suit`, `Color`     | Immutable card values and their properties                 |
+| `core.id`              | `CardId`, `RankId`, `SuitId`, `JokerId`, `ColorId`                      | Numeric identifiers, validation, and conversions           |
+| `core.id.format`       | `CardSymbol`, `DeckSymbol`, `RankSymbol`, `SuitSymbol`, `JokerSymbol`   | Parse and format text symbols                              |
+| `ordering`             | `PlayingCardComparator`, `RankWeightComparator`, `SuitWeightComparator` | Configure suit and rank ordering                           |
+| `cardholder`           | `CardHolder`, `CardViewer`, `CardSummary`, `StandardCardHolder`         | Store cards, search within a suit, and count occurrences   |
+| `gamedeck`             | `DeckTemplate`, `GameDeck`, `StandardGameDeck`                          | Create card sets and draw from an ordered deck             |
+| `gamedeck.shuffler`    | `ShufflerFactory`, `InPlaceShuffler`, `CopyingShuffler`                 | Shuffle a mutable list or create a shuffled copy           |
+| `gamedeck.dealer`      | `CardDealer`, `Recipient`, `DealRequest`, `DealResult`                  | Describe dealing requests and allocations                  |
+| `gamedeck.dealer.impl` | `StandardCardDealer`, `StandardDealRequest`, `StandardDealResult`       | Sequential dealing and immutable request/result containers |
+| `gamedeck.cardshoe`    | `CardShoe`, `StandardCardShoe`, `CutCardCalculator`                     | Draw from a shoe and monitor a cut-card threshold          |
 
 ## Cards and symbols
 
@@ -58,14 +58,14 @@ Package names below are relative to `ivs.game.accessories.cards`.
 `JokerCard` enums. A card value identifies a card type; repeated occurrences in a
 multi-deck shoe can reference the same enum constant.
 
-| Property | Representation |
-| --- | --- |
-| Ranks | `2`–`9`, `T`, `J`, `Q`, `K`, `A` |
-| Suits | `S` (spades), `C` (clubs), `D` (diamonds), `H` (hearts) |
-| Standard cards | Rank followed by suit: `AS`, `TH`, `7D` |
-| Jokers | `R1`, `R2`, `R3`, `R4` |
-| Standard card IDs | `0`–`51`, grouped by suit, then rank from Two to Ace |
-| Joker IDs | `52`–`55` |
+| Property          | Representation                                          |
+| ----------------- | ------------------------------------------------------- |
+| Ranks             | `2`–`9`, `T`, `J`, `Q`, `K`, `A`                        |
+| Suits             | `S` (spades), `C` (clubs), `D` (diamonds), `H` (hearts) |
+| Standard cards    | Rank followed by suit: `AS`, `TH`, `7D`                 |
+| Jokers            | `R1`, `R2`, `R3`, `R4`                                  |
+| Standard card IDs | `0`–`51`, grouped by suit, then rank from Two to Ace    |
+| Joker IDs         | `52`–`55`                                               |
 
 ```java
 import ivs.game.accessories.cards.core.id.format.DeckSymbol;
@@ -83,16 +83,15 @@ Jokers have a color, but no rank or suit. Calling `getRank()` or `getSuit()` on
 
 ## Deck templates
 
-| Template | Cards | Contents |
-| --- | ---: | --- |
-| `FULL` | 52 | Two through Ace, all four suits |
-| `EXTENDED` | 54 | Full deck plus `JOKER_1` and `JOKER_2` |
-| `DOUBLE_EXTENDED` | 56 | Full deck plus all four jokers |
-| `SHORT` | 36 | Six through Ace, all four suits |
-| `SMALL` | 32 | Seven through Ace, all four suits |
-| `TINY` | 24 | Nine through Ace, all four suits |
+| Template   | Cards | Contents                               |
+| -----------| ----: | -------------------------------------- |
+| `MAXIMAL`  |    56 | Full deck plus all four jokers         |
+| `EXTENDED` |    54 | Full deck plus `JOKER_1` and `JOKER_2` |
+| `FULL`     |    52 | Two through Ace, all four suits        |
+| `SHORT`    |    36 | Six through Ace, all four suits        |
+| `SMALL`    |    32 | Seven through Ace, all four suits      |
+| `TINY`     |    24 | Nine through Ace, all four suits       |
 
-`DOUBLE_EXTENDED` is a 56-card set, not two full decks.
 `DeckTemplate.get()` returns a set of unique card values with no guaranteed
 iteration order. Custom templates can be created with
 `DeckTemplate.get(fromRank, toRank, jokers...)`.
@@ -162,7 +161,7 @@ in the desired recipient order. Multiple requests for one recipient accumulate.
 - A lenient request receives as many cards as remain, up to its requested amount.
 - Validation occurs per request. A later failure does not undo earlier draws.
 - Allocations are returned as an unmodifiable map of unmodifiable lists; the dealer
-  does not automatically insert them into card holders.
+  does not automatically insert them into cardholders.
 
 Recipients must have stable, correct `equals()` and `hashCode()` implementations.
 

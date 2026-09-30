@@ -30,8 +30,8 @@ public class StandardDealRequest<R extends Recipient> implements DealRequest<R> 
      * In strict mode, the request will require the exact amount of cards to be dealt.
      *
      * @param recipient the recipient of the cards; must not be null
-     * @param amount the number of cards to be dealt (must be non-negative)
-     * @param <R> the type of the recipient
+     * @param amount    the number of cards to be dealt (must be non-negative)
+     * @param <R>       the type of the recipient
      * @return a new {@code StandardDealRequest} in strict mode
      */
     public static <R extends Recipient> StandardDealRequest<R> strictOf(R recipient, int amount) {
@@ -43,8 +43,8 @@ public class StandardDealRequest<R extends Recipient> implements DealRequest<R> 
      * In lenient mode, the request may allow dealing fewer cards than requested if necessary.
      *
      * @param recipient the recipient of the cards; must not be null
-     * @param amount the number of cards to be dealt (must be non-negative)
-     * @param <R> the type of the recipient
+     * @param amount    the number of cards to be dealt (must be non-negative)
+     * @param <R>       the type of the recipient
      * @return a new {@code StandardDealRequest} in lenient mode
      */
     public static <R extends Recipient> StandardDealRequest<R> lenientOf(R recipient, int amount) {

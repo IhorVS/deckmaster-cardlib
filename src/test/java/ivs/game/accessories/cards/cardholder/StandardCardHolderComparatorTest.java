@@ -1,12 +1,12 @@
 package ivs.game.accessories.cards.cardholder;
 
-import ivs.game.accessories.cards.ordering.PlayingCardComparator;
-import ivs.game.accessories.cards.ordering.RankWeightComparator;
-import ivs.game.accessories.cards.ordering.SuitWeightComparator;
 import ivs.game.accessories.cards.core.type.JokerCard;
 import ivs.game.accessories.cards.core.type.PlayingCard;
 import ivs.game.accessories.cards.core.type.StandardCard;
 import ivs.game.accessories.cards.core.type.Suit;
+import ivs.game.accessories.cards.ordering.PlayingCardComparator;
+import ivs.game.accessories.cards.ordering.RankWeightComparator;
+import ivs.game.accessories.cards.ordering.SuitWeightComparator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -23,7 +23,7 @@ public interface CardSummary {
      * @param rank the rank of the card (e.g. ACE, KING, TWO)
      * @param suit the suit of the card (e.g. HEARTS, CLUBS)
      * @return the number of cards with the given rank and suit,
-     *         or zero if there are none
+     * or zero if there are none
      */
     int getCardQty(Rank rank, Suit suit);
 
@@ -31,7 +31,7 @@ public interface CardSummary {
      * Returns the total quantity of all standard cards (excluding jokers) contained in this summary.
      *
      * @return the number of all non-joker cards in this summary,
-     *         or zero if no standard cards are present
+     * or zero if no standard cards are present
      */
     int getCardQty();
 
@@ -40,7 +40,7 @@ public interface CardSummary {
      *
      * @param suit the suit to query (e.g. SPADES)
      * @return the number of cards with the given suit across all ranks,
-     *         or zero if there are none
+     * or zero if there are none
      */
     int getSuitQty(Suit suit);
 
@@ -49,7 +49,7 @@ public interface CardSummary {
      *
      * @param rank the rank to query (e.g. JACK)
      * @return the number of cards with the given rank across all suits,
-     *         or zero if there are none
+     * or zero if there are none
      */
     int getRankQty(Rank rank);
 
@@ -57,7 +57,7 @@ public interface CardSummary {
      * Returns the quantity of joker cards of the specified type.
      *
      * @param joker the joker whose quantity to retrieve (must extend {@link JokerCard})
-     * @param <J> the joker card type
+     * @param <J>   the joker card type
      * @return the number of joker cards of this type, or zero if none are present
      */
     <J extends JokerCard> int getJokerQty(J joker);

@@ -21,10 +21,9 @@ import java.util.stream.Stream;
 public enum DeckTemplate {
 
     /**
-     * Double extended deck (56 cards: full 52-card deck plus 4 Jokers)
-     * Used in games like Double-DeckTemplate Canasta
+     * Maximal deck (56 cards: a full 52-card deck plus all four jokers).
      */
-    DOUBLE_EXTENDED(Rank.TWO, Rank.ACE,
+    MAXIMAL(Rank.TWO, Rank.ACE,
             JokerCard.JOKER_1,
             JokerCard.JOKER_2,
             JokerCard.JOKER_3,
@@ -98,7 +97,7 @@ public enum DeckTemplate {
             case SMALL -> get(SMALL.fromRank, SMALL.toRank);
             case TINY -> get(TINY.fromRank, TINY.toRank);
             case EXTENDED -> get(EXTENDED.fromRank, EXTENDED.toRank, EXTENDED.jokers);
-            case DOUBLE_EXTENDED -> get(DOUBLE_EXTENDED.fromRank, DOUBLE_EXTENDED.toRank, DOUBLE_EXTENDED.jokers);
+            case MAXIMAL -> get(MAXIMAL.fromRank, MAXIMAL.toRank, MAXIMAL.jokers);
         };
     }
 
@@ -141,7 +140,7 @@ public enum DeckTemplate {
      */
     public int getSize() {
         return switch (this) {
-            case DOUBLE_EXTENDED -> DOUBLE_EXTENDED_SIZE;
+            case MAXIMAL -> DOUBLE_EXTENDED_SIZE;
             case EXTENDED -> EXTENDED_SIZE;
             case FULL -> FULL_SIZE;
             case SHORT -> SHORT_SIZE;
@@ -154,7 +153,7 @@ public enum DeckTemplate {
         if (card.isJoker()) {
             return switch (this) {
                 case FULL, SHORT, SMALL, TINY -> false;
-                case DOUBLE_EXTENDED, EXTENDED -> ArrayUtils.contains(jokers, card);
+                case MAXIMAL, EXTENDED -> ArrayUtils.contains(jokers, card);
             };
         }
         int cardRankId = card.getRank().getId();

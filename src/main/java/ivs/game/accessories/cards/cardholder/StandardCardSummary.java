@@ -95,7 +95,7 @@ public final class StandardCardSummary implements CardSummary {
 
     @Override
     public <J extends JokerCard> int getJokerQty(@NonNull J joker) {
-        return jokers[getJokerIndex(joker)] ;
+        return jokers[getJokerIndex(joker)];
     }
 
     @Override

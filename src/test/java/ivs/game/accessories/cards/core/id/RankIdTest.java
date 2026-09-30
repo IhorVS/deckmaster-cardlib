@@ -84,19 +84,19 @@ class RankIdTest {
 
         assertNotNull(rankIds, "Array should not be null");
         assertEquals(RankId.RANK_COUNT, rankIds.length, String.format("Array should contain exactly %d elements", RankId.RANK_COUNT));
-        assertEquals(RankId.TWO,   rankIds[0], "First element should be TWO");
+        assertEquals(RankId.TWO, rankIds[0], "First element should be TWO");
         assertEquals(RankId.THREE, rankIds[1], "Second element should be THREE");
-        assertEquals(RankId.FOUR,  rankIds[2], "Third element should be FOUR");
-        assertEquals(RankId.FIVE,  rankIds[3], "Fourth element should be FIVE");
-        assertEquals(RankId.SIX,   rankIds[4], "Fifth element should be SIX");
+        assertEquals(RankId.FOUR, rankIds[2], "Third element should be FOUR");
+        assertEquals(RankId.FIVE, rankIds[3], "Fourth element should be FIVE");
+        assertEquals(RankId.SIX, rankIds[4], "Fifth element should be SIX");
         assertEquals(RankId.SEVEN, rankIds[5], "Sixth element should be SEVEN");
         assertEquals(RankId.EIGHT, rankIds[6], "Seventh element should be EIGHT");
-        assertEquals(RankId.NINE,  rankIds[7], "Eighth element should be NINE");
-        assertEquals(RankId.TEN,   rankIds[8], "Ninth element should be TEN");
-        assertEquals(RankId.JACK,  rankIds[9], "Tenth element should be JACK");
+        assertEquals(RankId.NINE, rankIds[7], "Eighth element should be NINE");
+        assertEquals(RankId.TEN, rankIds[8], "Ninth element should be TEN");
+        assertEquals(RankId.JACK, rankIds[9], "Tenth element should be JACK");
         assertEquals(RankId.QUEEN, rankIds[10], "Eleventh element should be QUEEN");
-        assertEquals(RankId.KING,  rankIds[11], "Twelfth element should be KING");
-        assertEquals(RankId.ACE,   rankIds[12], "Thirteenth element should be ACE");
+        assertEquals(RankId.KING, rankIds[11], "Twelfth element should be KING");
+        assertEquals(RankId.ACE, rankIds[12], "Thirteenth element should be ACE");
     }
 
     @Test

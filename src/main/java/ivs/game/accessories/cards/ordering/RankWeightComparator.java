@@ -166,19 +166,19 @@ public class RankWeightComparator implements Comparator<Rank> {
      */
     public static RankWeightComparator aceLowOrder() {
         return ofOrder(
-            Rank.ACE,
-            Rank.TWO,
-            Rank.THREE,
-            Rank.FOUR,
-            Rank.FIVE,
-            Rank.SIX,
-            Rank.SEVEN,
-            Rank.EIGHT,
-            Rank.NINE,
-            Rank.TEN,
-            Rank.JACK,
-            Rank.QUEEN,
-            Rank.KING
+                Rank.ACE,
+                Rank.TWO,
+                Rank.THREE,
+                Rank.FOUR,
+                Rank.FIVE,
+                Rank.SIX,
+                Rank.SEVEN,
+                Rank.EIGHT,
+                Rank.NINE,
+                Rank.TEN,
+                Rank.JACK,
+                Rank.QUEEN,
+                Rank.KING
         );
     }
 }

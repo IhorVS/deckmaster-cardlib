@@ -17,16 +17,24 @@ import java.util.stream.IntStream;
  */
 public class JokerSymbol {
 
-    /** Symbol representing the first joker */
+    /**
+     * Symbol representing the first joker
+     */
     public static final String JOKER_1 = "R1";
 
-    /** Symbol representing the second joker */
+    /**
+     * Symbol representing the second joker
+     */
     public static final String JOKER_2 = "R2";
 
-    /** Symbol representing the third joker */
+    /**
+     * Symbol representing the third joker
+     */
     public static final String JOKER_3 = "R3";
 
-    /** Symbol representing the fourth joker */
+    /**
+     * Symbol representing the fourth joker
+     */
     public static final String JOKER_4 = "R4";
 
     /**

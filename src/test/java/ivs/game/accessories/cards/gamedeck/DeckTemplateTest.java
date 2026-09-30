@@ -41,7 +41,7 @@ class DeckTemplateTest {
 
     private static Stream<Arguments> deckTypeAndSizeProvider() {
         return Stream.of(
-                Arguments.of(DeckTemplate.DOUBLE_EXTENDED, DOUBLE_EXTENDED_SIZE),
+                Arguments.of(DeckTemplate.MAXIMAL, DOUBLE_EXTENDED_SIZE),
                 Arguments.of(DeckTemplate.EXTENDED, EXTENDED_SIZE),
                 Arguments.of(DeckTemplate.FULL, FULL_SIZE),
                 Arguments.of(DeckTemplate.SHORT, SHORT_SIZE),
@@ -53,7 +53,7 @@ class DeckTemplateTest {
     @Test
     @DisplayName("DOUBLE_EXTENDED deck should contain 52 standard cards and 4 different jokers")
     void doubleExtendedDeckShouldContain52StandardCardsAnd4Jokers() {
-        Set<PlayingCard> cards = DeckTemplate.DOUBLE_EXTENDED.get();
+        Set<PlayingCard> cards = DeckTemplate.MAXIMAL.get();
         assertEquals(DOUBLE_EXTENDED_SIZE, cards.size(), "DOUBLE_EXTENDED deck must have 56 cards (52+4Jokers)");
         assertTrue(cards.containsAll(EnumSet.of(
                         JokerCard.JOKER_1, JokerCard.JOKER_2, JokerCard.JOKER_3, JokerCard.JOKER_4)),
@@ -231,7 +231,7 @@ class DeckTemplateTest {
     @DisplayName("SMALL deck: correctly reports card and joker containment")
     void smallDeckContainsCardShouldWork(PlayingCard card, boolean expected) {
         assertEquals(expected, DeckTemplate.SMALL.containsCard(card),
-            () -> "SMALL deck " + (expected ? "should contain " : "should not contain ") + card);
+                () -> "SMALL deck " + (expected ? "should contain " : "should not contain ") + card);
     }
 
     static Stream<Arguments> smallDeckContainsCardProvider() {
@@ -368,7 +368,7 @@ class DeckTemplateTest {
     @MethodSource("doubleExtendedDeckContainsCardProvider")
     @DisplayName("DOUBLE_EXTENDED deck: correctly reports card and joker containment")
     void doubleExtendedDeckContainsCardShouldWork(PlayingCard card, boolean expected) {
-        assertEquals(expected, DeckTemplate.DOUBLE_EXTENDED.containsCard(card),
+        assertEquals(expected, DeckTemplate.MAXIMAL.containsCard(card),
                 () -> "DOUBLE_EXTENDED deck " + (expected ? "should contain " : "should not contain ") + card);
     }
 
@@ -401,7 +401,7 @@ class DeckTemplateTest {
     @Test
     @DisplayName("containsCard(null) should throw NullPointerException")
     void containsCardWithNullThrows() {
-        assertThrows(NullPointerException.class, () -> DeckTemplate.DOUBLE_EXTENDED.containsCard(null),
+        assertThrows(NullPointerException.class, () -> DeckTemplate.MAXIMAL.containsCard(null),
                 "containsCard(null) should throw NullPointerException");
     }
 }

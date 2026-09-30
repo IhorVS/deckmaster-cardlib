@@ -74,6 +74,6 @@ public final class RankId {
      * @return an array containing all rank IDs from {@link #ACE} to {@link #KING}
      */
     public static int[] getAllRankIds() {
-        return new int[] {TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
+        return new int[]{TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
     }
 }
